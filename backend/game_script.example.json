@@ -1,0 +1,307 @@
+{
+  "gameId": "cebea743-1229-468a-95b6",
+  "status": "finished",
+  "winner": "villager",
+  "players": [
+    {
+      "id": "p1",
+      "name": "CORE-7",
+      "role": "werewolf",
+      "isAlive": false
+    },
+    {
+      "id": "p2",
+      "name": "CORE-9",
+      "role": "villager",
+      "isAlive": true
+    },
+    {
+      "id": "p3",
+      "name": "SCAN-X",
+      "role": "villager",
+      "isAlive": true
+    },
+    {
+      "id": "p4",
+      "name": "WALL-E",
+      "role": "villager",
+      "isAlive": false
+    },
+    {
+      "id": "p5",
+      "name": "VX-01",
+      "role": "villager",
+      "isAlive": false
+    },
+    {
+      "id": "p6",
+      "name": "PROT-Z",
+      "role": "villager",
+      "isAlive": false
+    },
+    {
+      "id": "p7",
+      "name": "Agent Eta",
+      "role": "werewolf",
+      "isAlive": false
+    },
+    {
+      "id": "p8",
+      "name": "Agent Theta",
+      "role": "villager",
+      "isAlive": true
+    }
+  ],
+  "rounds": [
+    {
+      "roundNumber": 1,
+      "phase": "night",
+      "actions": [
+        {
+          "actorId": "p1",
+          "role": "werewolf",
+          "type": "kill",
+          "targetId": "p4"
+        },
+        {
+          "actorId": "p7",
+          "role": "werewolf",
+          "type": "assist_kill",
+          "targetId": "p4"
+        }
+      ],
+      "result": {
+        "deaths": ["p4"]
+      }
+    },
+    {
+      "roundNumber": 1,
+      "phase": "day",
+      "messages": [
+        {
+          "id": "m1",
+          "playerId": "p1",
+          "content": "We lost someone on the very first night, which means the wolves are already acting strategically and confidently. I think we should avoid emotional reactions and instead focus on analyzing who benefits most from this elimination.",
+          "timestamp": 1700010001
+        },
+        {
+          "id": "m2",
+          "playerId": "p1",
+          "content": "Rushing into accusations without a clear behavioral pattern could cost us another innocent life. Let us question people calmly and observe inconsistencies in their reasoning.",
+          "timestamp": 1700010002
+        },
+        {
+          "id": "m3",
+          "playerId": "p2",
+          "content": "I noticed that p1 immediately tried to control the narrative by telling us to stay calm and avoid emotional reactions. Sometimes wolves use that tone to appear rational while subtly steering suspicion away from themselves.",
+          "timestamp": 1700010003
+        },
+        {
+          "id": "m4",
+          "playerId": "p2",
+          "content": "We should pressure the most composed players first because wolves often rehearse their responses. I am not accusing yet, but I believe p1 deserves closer scrutiny.",
+          "timestamp": 1700010004
+        },
+        {
+          "id": "m5",
+          "playerId": "p3",
+          "content": "From my perspective, both p1 and p7 seem unusually careful with their wording, which feels slightly unnatural. It might be coincidence, but that cautious tone makes me uneasy.",
+          "timestamp": 1700010005
+        },
+        {
+          "id": "m6",
+          "playerId": "p3",
+          "content": "If we want to survive long enough to win, we must identify subtle manipulation rather than loud aggression. I encourage everyone to reflect on who is shaping the direction of this conversation.",
+          "timestamp": 1700010006
+        },
+        {
+          "id": "m7",
+          "playerId": "p5",
+          "content": "It is still early, so any accusation right now is mostly based on tone and intuition rather than hard evidence. However, I feel that p7 has been blending into the background intentionally.",
+          "timestamp": 1700010007
+        },
+        {
+          "id": "m8",
+          "playerId": "p5",
+          "content": "Remaining neutral can be a survival strategy for wolves who do not want to stand out. I would like to hear stronger opinions from those who have barely spoken.",
+          "timestamp": 1700010008
+        },
+        {
+          "id": "m9",
+          "playerId": "p6",
+          "content": "We should remember that wolves sometimes sacrifice one of their own if necessary to gain long-term trust. Therefore, voting patterns will be extremely important starting today.",
+          "timestamp": 1700010009
+        },
+        {
+          "id": "m10",
+          "playerId": "p6",
+          "content": "I am currently leaning toward investigating p1 more deeply because he appears overly structured in his reasoning. That could be natural leadership, or it could be calculated deception.",
+          "timestamp": 1700010010
+        },
+        {
+          "id": "m11",
+          "playerId": "p7",
+          "content": "It feels suspicious that attention shifted to me simply because I was quiet for a moment. Sometimes villagers overanalyze normal behavior and create imaginary patterns.",
+          "timestamp": 1700010011
+        },
+        {
+          "id": "m12",
+          "playerId": "p7",
+          "content": "If we eliminate someone based purely on tone, we are playing directly into the wolves’ hands. I suggest we examine who started each suspicion chain and why.",
+          "timestamp": 1700010012
+        },
+        {
+          "id": "m13",
+          "playerId": "p8",
+          "content": "The discussion today reveals more about reactions than about facts, and reactions can expose hidden motives. I believe p1 and p7 are both worth serious consideration.",
+          "timestamp": 1700010013
+        },
+        {
+          "id": "m14",
+          "playerId": "p8",
+          "content": "If one of them turns out to be a wolf, the other’s behavior tomorrow will give us even more clarity. Strategic voting today is crucial for long-term survival.",
+          "timestamp": 1700010014
+        }
+      ],
+      "votes": [
+        {
+          "voterId": "p1",
+          "targetId": "p2"
+        },
+        {
+          "voterId": "p2",
+          "targetId": "p1"
+        },
+        {
+          "voterId": "p3",
+          "targetId": "p1"
+        },
+        {
+          "voterId": "p5",
+          "targetId": "p7"
+        },
+        {
+          "voterId": "p6",
+          "targetId": "p1"
+        },
+        {
+          "voterId": "p7",
+          "targetId": "p2"
+        },
+        {
+          "voterId": "p8",
+          "targetId": "p1"
+        }
+      ],
+      "result": {
+        "eliminatedPlayerId": "p1"
+      }
+    },
+    {
+      "roundNumber": 2,
+      "phase": "night",
+      "actions": [
+        {
+          "actorId": "p7",
+          "role": "werewolf",
+          "type": "kill",
+          "targetId": "p5"
+        }
+      ],
+      "result": {
+        "deaths": ["p5"]
+      }
+    },
+    {
+      "roundNumber": 2,
+      "phase": "day",
+      "messages": [
+        {
+          "id": "m15",
+          "playerId": "p2",
+          "content": "Now that one wolf has been eliminated, the remaining one will likely act more cautiously and strategically. We must evaluate who benefited the most from p1’s elimination.",
+          "timestamp": 1700020001
+        },
+        {
+          "id": "m16",
+          "playerId": "p2",
+          "content": "Looking back at yesterday’s votes, p7’s behavior still concerns me significantly. His attempts to appear logical might be a survival tactic.",
+          "timestamp": 1700020002
+        },
+        {
+          "id": "m17",
+          "playerId": "p3",
+          "content": "The night kill choice seems designed to remove someone who suspected p7 openly. That pattern aligns strongly with wolf retaliation behavior.",
+          "timestamp": 1700020003
+        },
+        {
+          "id": "m18",
+          "playerId": "p3",
+          "content": "If we fail to act decisively today, the remaining wolf could regain momentum and manipulate us in the late game.",
+          "timestamp": 1700020004
+        },
+        {
+          "id": "m19",
+          "playerId": "p6",
+          "content": "Statistically speaking, eliminating the final wolf today guarantees victory for the villagers. Therefore, precision and clarity in our reasoning are absolutely critical.",
+          "timestamp": 1700020005
+        },
+        {
+          "id": "m20",
+          "playerId": "p6",
+          "content": "Based on voting alignment and defensive tone, p7 currently stands out as the most probable candidate.",
+          "timestamp": 1700020006
+        },
+        {
+          "id": "m21",
+          "playerId": "p7",
+          "content": "It is convenient that suspicion remains on me even after we successfully eliminated a wolf. This could indicate that someone is attempting to push a misdirection strategy.",
+          "timestamp": 1700020007
+        },
+        {
+          "id": "m22",
+          "playerId": "p7",
+          "content": "If you eliminate me and I turn out innocent, the real wolf will secure victory almost immediately. Please reconsider your assumptions carefully.",
+          "timestamp": 1700020008
+        },
+        {
+          "id": "m23",
+          "playerId": "p8",
+          "content": "The voting history and emotional reactions point toward a consistent defensive pattern from p7. That pattern has not changed even after yesterday’s revelation.",
+          "timestamp": 1700020009
+        },
+        {
+          "id": "m24",
+          "playerId": "p8",
+          "content": "For the safety of the remaining villagers, I believe eliminating p7 today is the most logical course of action.",
+          "timestamp": 1700020010
+        }
+      ],
+      "votes": [
+        {
+          "voterId": "p2",
+          "targetId": "p7"
+        },
+        {
+          "voterId": "p3",
+          "targetId": "p7"
+        },
+        {
+          "voterId": "p6",
+          "targetId": "p7"
+        },
+        {
+          "voterId": "p7",
+          "targetId": "p2"
+        },
+        {
+          "voterId": "p8",
+          "targetId": "p7"
+        }
+      ],
+      "result": {
+        "eliminatedPlayerId": "p7"
+      }
+    }
+  ]
+}

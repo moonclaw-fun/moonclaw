@@ -1,0 +1,54 @@
+version: "3"
+services:
+    mysql:
+        image: mysql:8.0
+        container_name: market-mysql
+        command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8 --collation-server=utf8_general_ci --sql-mode="" --max_connections=5000
+        ports:
+            - 3306:3306
+        restart: always
+        volumes:
+            - ./docker/mysql:/var/lib/mysql
+        logging:
+            driver: "json-file"
+            options:
+                # need to tune later after running in production
+                max-size: "100m"
+                max-file: "20"
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE_NAME}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+
+    redis:
+        image: redis:6.2-alpine
+        restart: always
+        ports:
+            - "6379:6379"
+        volumes:
+            - ./docker/redis:/data
+        command: redis-server --save 20 1 --loglevel warning --requirepass ${REDIS_PASSWORD}
+        logging:
+            driver: "json-file"
+            options:
+                # need to tune later after running in production
+                max-size: "100m"
+                max-file: "20"
+        healthcheck:
+            test: ["CMD", "redis-cli", "ping"]
+            interval: 30s
+            timeout: 10s
+            retries: 5
+    minio:
+        image: quay.io/minio/minio
+        container_name: minio
+        ports:
+        - '9000:9000'
+        - '9001:9001'
+        environment:
+            MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY}
+            MINIO_SECRET_KEY: ${MINIO_SECRET_KEY}
+        volumes:
+            - ~/minio/data:/data
+        command: server /data --console-address ":9001"

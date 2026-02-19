@@ -1,0 +1,473 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-outfit), var(--font-dm-sans), system-ui, sans-serif;
+  --font-mono: var(--font-ibm-plex-mono);
+  --font-display: var(--font-outfit);
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar-background);
+
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}
+
+:root {
+  --radius: 0.25rem;
+
+  /* ── Binance Dark Theme ─────────────────────────── */
+  /* Exact Binance color tokens */
+  --bnb-bg-base: #0b0e11; /* deepest bg */
+  --bnb-bg-primary: #181a20; /* main page bg */
+  --bnb-bg-secondary: #1e2329; /* card bg */
+  --bnb-bg-tertiary: #2b3139; /* hover / borders */
+  --bnb-yellow: #f0b90b;
+  --bnb-yellow-hover: #d4a009;
+  --bnb-green: #0ecb81;
+  --bnb-red: #f6465d;
+  --bnb-text-primary: #eaecef;
+  --bnb-text-secondary: #848e9c;
+  --bnb-text-disabled: #474d57;
+  --bnb-border: #2b3139;
+
+  /* Tailwind tokens mapped to Binance palette */
+  --background: 225 14% 11%; /* #181A20 */
+  --foreground: 220 17% 93%; /* #EAECEF */
+
+  --card: 216 16% 14%; /* #1E2329 */
+  --card-foreground: 0 0% 100%;
+
+  --popover: 216 16% 14%;
+  --popover-foreground: 0 0% 100%;
+
+  --primary: 45.6 91.2% 49.2%; /* #F0B90B */
+  --primary-foreground: 0 0% 0%;
+
+  --secondary: 216 13% 20%; /* #2B3139 */
+  --secondary-foreground: 0 0% 100%;
+
+  --muted: 216 13% 20%;
+  --muted-foreground: 213 11% 56%; /* #848E9C */
+
+  --accent: 45.6 91.2% 49.2%;
+  --accent-foreground: 0 0% 0%;
+
+  --destructive: 351 90% 62%; /* #F6465D */
+  --destructive-foreground: 0 0% 100%;
+
+  --success: 156 87% 42%; /* #0ECB81 */
+  --success-foreground: 0 0% 100%;
+
+  --border: 216 13% 20%; /* #2B3139 */
+  --input: 216 13% 20%;
+  --ring: 45.6 91.2% 49.2%;
+
+  --chart-1: 45.6 91.2% 49.2%;
+  --chart-2: 210 100% 50%;
+  --chart-3: 156 87% 42%;
+  --chart-4: 351 90% 62%;
+  --chart-5: 280 70% 60%;
+
+  --sidebar-background: 220 18% 9%; /* #0B0E11 */
+  --sidebar-foreground: 213 11% 56%;
+  --sidebar-primary: 45.6 91.2% 49.2%;
+  --sidebar-primary-foreground: 0 0% 0%;
+  --sidebar-accent: 216 16% 14%;
+  --sidebar-accent-foreground: 45.6 91.2% 49.2%;
+  --sidebar-border: 216 13% 20%;
+  --sidebar-ring: 45.6 91.2% 49.2%;
+
+  --font-outfit: "Outfit", sans-serif;
+  --font-dm-sans: "DM Sans", sans-serif;
+  --font-ibm-plex-mono: "IBM Plex Mono", monospace;
+}
+
+.dark {
+  --background: 225 14% 11%;
+  --foreground: 220 17% 93%;
+  --card: 216 16% 14%;
+  --card-foreground: 0 0% 100%;
+  --popover: 216 16% 14%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 45.6 91.2% 49.2%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 216 13% 20%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 216 13% 20%;
+  --muted-foreground: 213 11% 56%;
+  --accent: 45.6 91.2% 49.2%;
+  --accent-foreground: 0 0% 0%;
+  --destructive: 351 90% 62%;
+  --destructive-foreground: 0 0% 100%;
+  --success: 156 87% 42%;
+  --success-foreground: 0 0% 100%;
+  --border: 216 13% 20%;
+  --input: 216 13% 20%;
+  --ring: 45.6 91.2% 49.2%;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground min-h-screen font-sans;
+    background-color: #181a20;
+  }
+}
+
+/* ── Binance-style Components ─────────────────────── */
+@layer components {
+  /* Card — clean flat Binance-style card */
+  .bnb-card {
+    background-color: #1e2329;
+    border: 1px solid #2b3139;
+    border-radius: 4px;
+  }
+
+  /* Panel header */
+  .bnb-panel-header {
+    padding: 12px 16px;
+    border-bottom: 1px solid #2b3139;
+    background-color: #1e2329;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Primary CTA button — Binance yellow */
+  .bnb-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: #f0b90b;
+    color: #181a20;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    letter-spacing: 0.05em;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition:
+      background-color 0.15s ease,
+      transform 0.1s ease;
+  }
+  .bnb-btn-primary:hover {
+    background-color: #d4a009;
+  }
+  .bnb-btn-primary:active {
+    transform: scale(0.98);
+  }
+  .bnb-btn-primary:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  /* Ghost / secondary button */
+  .bnb-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: #848e9c;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    letter-spacing: 0.04em;
+    padding: 9px 16px;
+    border-radius: 4px;
+    border: 1px solid #2b3139;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .bnb-btn-ghost:hover {
+    border-color: #f0b90b;
+    color: #f0b90b;
+    background: rgba(240, 185, 11, 0.06);
+  }
+
+  /* Sidebar nav item */
+  .bnb-nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 4px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #848e9c;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+  }
+  .bnb-nav-item:hover {
+    color: #eaecef;
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+  .bnb-nav-item.active {
+    color: #f0b90b;
+    background-color: rgba(240, 185, 11, 0.08);
+    border-color: rgba(240, 185, 11, 0.2);
+  }
+  .bnb-nav-item.active::before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 60%;
+    background-color: #f0b90b;
+    border-radius: 0 2px 2px 0;
+  }
+
+  /* Market option tile */
+  .bnb-market-tile {
+    background-color: #1e2329;
+    border: 1px solid #2b3139;
+    border-radius: 4px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .bnb-market-tile:hover {
+    border-color: rgba(240, 185, 11, 0.5);
+    background-color: rgba(240, 185, 11, 0.04);
+  }
+  .bnb-market-tile.selected {
+    border-color: #f0b90b;
+    background-color: rgba(240, 185, 11, 0.08);
+  }
+  .bnb-market-tile:disabled,
+  .bnb-market-tile[disabled] {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* Status badge */
+  .bnb-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    font-family: var(--font-ibm-plex-mono);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .bnb-badge-success {
+    background-color: rgba(14, 203, 129, 0.12);
+    color: #0ecb81;
+    border: 1px solid rgba(14, 203, 129, 0.3);
+  }
+  .bnb-badge-danger {
+    background-color: rgba(246, 70, 93, 0.12);
+    color: #f6465d;
+    border: 1px solid rgba(246, 70, 93, 0.3);
+  }
+  .bnb-badge-warning {
+    background-color: rgba(240, 185, 11, 0.12);
+    color: #f0b90b;
+    border: 1px solid rgba(240, 185, 11, 0.3);
+  }
+  .bnb-badge-neutral {
+    background-color: rgba(132, 142, 156, 0.12);
+    color: #848e9c;
+    border: 1px solid rgba(132, 142, 156, 0.2);
+  }
+
+  /* Input field */
+  .bnb-input {
+    background-color: #2b3139;
+    border: 1px solid #2b3139;
+    border-radius: 4px;
+    color: #eaecef;
+    font-family: var(--font-ibm-plex-mono);
+    font-size: 0.9375rem;
+    padding: 10px 14px;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.15s ease;
+  }
+  .bnb-input:focus {
+    border-color: #f0b90b;
+  }
+  .bnb-input::placeholder {
+    color: #474d57;
+  }
+
+  /* Table styles */
+  .bnb-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .bnb-table thead tr {
+    background-color: #161a1f;
+    border-bottom: 1px solid #2b3139;
+  }
+  .bnb-table thead th {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    font-family: var(--font-ibm-plex-mono);
+    color: #848e9c;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .bnb-table tbody tr {
+    border-bottom: 1px solid rgba(43, 49, 57, 0.6);
+    transition: background-color 0.1s ease;
+  }
+  .bnb-table tbody tr:hover {
+    background-color: rgba(43, 49, 57, 0.5);
+  }
+  .bnb-table tbody td {
+    padding: 14px 16px;
+    font-size: 0.8125rem;
+    color: #eaecef;
+  }
+
+  /* Cyber box — kept for compatibility, but made flat (no clip-path) */
+  .cyber-box {
+    border: 1px solid var(--bnb-border);
+    background-color: #1e2329;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  /* Cyber button — Binance yellow style */
+  .cyber-button {
+    position: relative;
+    padding: 10px 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background-color: rgba(240, 185, 11, 0.1);
+    border: 1px solid rgba(240, 185, 11, 0.4);
+    color: #f0b90b;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .cyber-button:hover {
+    background-color: #f0b90b;
+    color: #181a20;
+    border-color: #f0b90b;
+  }
+
+  /* Cyber input — same style as bnb-input */
+  .cyber-input {
+    background-color: #2b3139;
+    border: 1px solid #2b3139;
+    border-radius: 4px;
+    color: #eaecef;
+    font-size: 0.9375rem;
+    padding: 10px 14px;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.15s ease;
+  }
+  .cyber-input:focus {
+    border-color: #f0b90b;
+  }
+  .cyber-input::placeholder {
+    color: #474d57;
+  }
+}
+
+/* ── Scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0e11;
+}
+::-webkit-scrollbar-thumb {
+  background: #2b3139;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f0b90b;
+}
+
+/* ── Glow utilities ───────────────────────────────── */
+.glow-yellow {
+  box-shadow: 0 0 12px rgba(240, 185, 11, 0.25);
+}
+.text-glow-yellow {
+  text-shadow: 0 0 12px rgba(240, 185, 11, 0.5);
+}
+.text-success {
+  color: #0ecb81;
+}
+.text-danger {
+  color: #f6465d;
+}
+
+/* ── Live pulse dot ───────────────────────────────── */
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+.live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #0ecb81;
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}

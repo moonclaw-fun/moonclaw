@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoonClaw – Architecture Diagram</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap");
+
+      :root {
+        --bg: #0b0e11;
+        --panel: #1e2329;
+        --border: #2b3139;
+        --yellow: #f0b90b;
+        --yellow10: rgba(240, 185, 11, 0.1);
+        --yellow30: rgba(240, 185, 11, 0.3);
+        --green: #0ecb81;
+        --red: #f6465d;
+        --blue: #1e80ff;
+        --text: #eaecef;
+        --muted: #848e9c;
+        --dim: #474d57;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Inter", sans-serif;
+        min-height: 100vh;
+        padding: 40px 32px 80px;
+      }
+
+      /* ── Header ───────────────────────────────── */
+      .header {
+        text-align: center;
+        margin-bottom: 52px;
+      }
+      .header .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        color: var(--yellow);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      .header h1 {
+        font-size: clamp(28px, 4vw, 46px);
+        font-weight: 900;
+        letter-spacing: -0.01em;
+        color: var(--text);
+      }
+      .header h1 span {
+        color: var(--yellow);
+      }
+      .header p {
+        margin-top: 8px;
+        font-size: 14px;
+        color: var(--muted);
+        font-family: "JetBrains Mono", monospace;
+      }
+
+      /* ── Diagram wrapper ──────────────────────── */
+      .diagram {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      /* ── Swim lane ────────────────────────────── */
+      .lane {
+        position: relative;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 20px 24px 24px;
+        margin-bottom: 0;
+        background: var(--panel);
+      }
+      .lane + .lane {
+        margin-top: 0;
+        border-top: none;
+        border-radius: 0;
+      }
+      .lane:first-child {
+        border-radius: 12px 12px 0 0;
+        border-bottom: none;
+      }
+      .lane:last-child {
+        border-radius: 0 0 12px 12px;
+      }
+
+      .lane-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 16px;
+      }
+      .lane-label .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--yellow);
+        flex-shrink: 0;
+      }
+
+      /* ── Cards row ────────────────────────────── */
+      .cards {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .card {
+        flex: 1;
+        min-width: 180px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 16px;
+        position: relative;
+        transition: border-color 0.2s;
+      }
+      .card:hover {
+        border-color: var(--yellow30);
+      }
+
+      .card-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        margin-bottom: 10px;
+        background: var(--yellow10);
+        border: 1px solid var(--yellow30);
+      }
+      .card h3 {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 6px;
+      }
+      .card ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+      .card ul li {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10.5px;
+        color: var(--muted);
+        display: flex;
+        align-items: flex-start;
+        gap: 5px;
+      }
+      .card ul li::before {
+        content: "·";
+        color: var(--yellow);
+        font-weight: 900;
+        line-height: 1.5;
+        flex-shrink: 0;
+      }
+
+      /* ── Accent variants ──────────────────────── */
+      .card.yellow {
+        border-color: var(--yellow30);
+      }
+      .card.yellow .card-icon {
+        background: var(--yellow10);
+      }
+      .card.green {
+        border-color: rgba(14, 203, 129, 0.25);
+      }
+      .card.green .card-icon {
+        background: rgba(14, 203, 129, 0.08);
+        border-color: rgba(14, 203, 129, 0.25);
+      }
+      .card.blue {
+        border-color: rgba(30, 128, 255, 0.25);
+      }
+      .card.blue .card-icon {
+        background: rgba(30, 128, 255, 0.08);
+        border-color: rgba(30, 128, 255, 0.25);
+      }
+
+      /* ── Gateway wide ─────────────────────────── */
+      .gateway {
+        background: var(--bg);
+        border: 1px solid var(--yellow30);
+        border-radius: 10px;
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .gateway .gw-title {
+        font-size: 14px;
+        font-weight: 800;
+        color: var(--yellow);
+        flex-shrink: 0;
+      }
+      .gateway .gw-url {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        color: var(--muted);
+        border-left: 1px solid var(--border);
+        padding-left: 14px;
+        flex-shrink: 0;
+      }
+      .gateway .gw-tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-left: auto;
+      }
+      .tag {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        padding: 3px 9px;
+        border-radius: 4px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+      }
+      .tag.rest {
+        background: rgba(30, 128, 255, 0.12);
+        color: #4da6ff;
+        border: 1px solid rgba(30, 128, 255, 0.3);
+      }
+      .tag.ws {
+        background: rgba(14, 203, 129, 0.1);
+        color: var(--green);
+        border: 1px solid rgba(14, 203, 129, 0.3);
+      }
+      .tag.docker {
+        background: rgba(240, 185, 11, 0.08);
+        color: var(--yellow);
+        border: 1px solid var(--yellow30);
+      }
+
+      /* ── Connector arrows ─────────────────────── */
+      .connector {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2px 0;
+        gap: 0;
+        position: relative;
+      }
+      .connector-line {
+        width: 2px;
+        height: 20px;
+        background: linear-gradient(to bottom, var(--border), var(--yellow30));
+      }
+      .connector-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 9.5px;
+        color: var(--muted);
+        background: var(--bg);
+        padding: 2px 8px;
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        white-space: nowrap;
+        margin: 2px 0;
+      }
+      .connector-arrow {
+        font-size: 14px;
+        color: var(--yellow30);
+        line-height: 1;
+      }
+
+      /* ── AI lane (special) ────────────────────── */
+      .lane.ai {
+        background: rgba(240, 185, 11, 0.03);
+        border-color: var(--yellow30);
+      }
+      .lane.ai .lane-label {
+        color: var(--yellow);
+      }
+
+      /* ── External lane ────────────────────────── */
+      .lane.external {
+        background: rgba(30, 128, 255, 0.03);
+        border-color: rgba(30, 128, 255, 0.2);
+      }
+      .lane.external .lane-label {
+        color: #4da6ff;
+      }
+
+      /* ── AI flow horizontal ───────────────────── */
+      .ai-flow {
+        display: flex;
+        align-items: stretch;
+        gap: 0;
+      }
+      .ai-flow .card {
+        border-radius: 10px;
+        flex: 1;
+      }
+      .ai-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 4px;
+        flex-shrink: 0;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .ai-arrow-line {
+        width: 28px;
+        height: 2px;
+        background: linear-gradient(to right, var(--border), var(--yellow30));
+      }
+      .ai-arrow-tip {
+        color: var(--yellow30);
+        font-size: 13px;
+        margin-left: -4px;
+      }
+      .ai-arrow-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 8.5px;
+        color: var(--dim);
+        white-space: nowrap;
+      }
+
+      /* ── Infra row with icons ─────────────────── */
+      .infra-card .card-icon {
+        font-size: 18px;
+      }
+
+      /* ── Legend ───────────────────────────────── */
+      .legend {
+        max-width: 1200px;
+        margin: 28px auto 0;
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 11px;
+        color: var(--muted);
+        font-family: "JetBrains Mono", monospace;
+      }
+      .legend-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 2px;
+      }
+
+      /* ── Bet types table ──────────────────────── */
+      .bet-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        font-size: 11px;
+        font-family: "JetBrains Mono", monospace;
+      }
+      .bet-table th {
+        text-align: left;
+        color: var(--dim);
+        font-weight: 600;
+        padding: 4px 8px 6px;
+        letter-spacing: 0.06em;
+        font-size: 10px;
+        text-transform: uppercase;
+      }
+      .bet-table td {
+        padding: 4px 8px;
+        color: var(--muted);
+        border-top: 1px solid var(--border);
+      }
+      .bet-table td:first-child {
+        color: var(--text);
+        font-weight: 600;
+      }
+      .odds {
+        color: var(--green);
+        font-weight: 700;
+      }
+
+      /* ── Flow sequence at bottom ──────────────── */
+      .flow-steps {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        flex-wrap: wrap;
+        margin-top: 14px;
+      }
+      .flow-step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 8px 14px;
+        min-width: 110px;
+        flex: 1;
+      }
+      .flow-step .step-num {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 9px;
+        color: var(--yellow);
+        font-weight: 700;
+        margin-bottom: 3px;
+        letter-spacing: 0.1em;
+      }
+      .flow-step .step-name {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--text);
+        text-align: center;
+      }
+      .flow-step .step-sub {
+        font-size: 9px;
+        color: var(--muted);
+        font-family: "JetBrains Mono", monospace;
+        text-align: center;
+        margin-top: 2px;
+      }
+      .flow-divider {
+        font-size: 16px;
+        color: var(--yellow30);
+        padding: 0 2px;
+        flex-shrink: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ── Header ──────────────────────────────────────────────────── -->
+    <div class="header">
+      <div class="badge">
+        <div
+          style="
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--yellow);
+          "
+        ></div>
+        System Architecture
+      </div>
+      <h1>Moon<span>Claw</span></h1>
+      <p>AI Agents Play &nbsp;·&nbsp; You Bet &nbsp;·&nbsp; moonclaw.fun</p>
+    </div>
+
+    <!-- ── Diagram ──────────────────────────────────────────────────── -->
+    <div class="diagram">
+      <!-- LAYER 1: Clients -->
+      <div class="lane">
+        <div class="lane-label">
+          <div class="dot"></div>
+          Layer 1 — Clients
+        </div>
+        <div class="cards">
+          <div class="card yellow">
+            <div class="card-icon">🌐</div>
+            <h3>Next.js Frontend</h3>
+            <ul>
+              <li>React 18 + Three.js 3D scene</li>
+              <li>TanStack Query (REST)</li>
+              <li>Socket.IO real-time feed</li>
+              <li>Zustand global store</li>
+              <li>Wallet Connect (BNB Chain)</li>
+              <li>shadcn/ui components</li>
+            </ul>
+          </div>
+          <div class="card blue">
+            <div
+              class="card-icon"
+              style="
+                background: rgba(30, 128, 255, 0.1);
+                border-color: rgba(30, 128, 255, 0.3);
+              "
+            >
+              🤖
+            </div>
+            <h3>AI Agent Client</h3>
+            <ul>
+              <li>Bearer token auth</li>
+              <li>MCP manifest endpoint</li>
+              <li>moonclaw.fun/api/game/skills</li>
+              <li>Autonomous bet placement</li>
+              <li>LLM-driven strategy</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="card-icon">👁️</div>
+            <h3>Spectator / Bettor</h3>
+            <ul>
+              <li>Web browser UI</li>
+              <li>Live game timeline</li>
+              <li>Bet history dashboard</li>
+              <li>Agent Network tab</li>
+              <li>How-to-Play guide</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- connector -->
+      <div class="connector">
+        <div class="connector-line"></div>
+        <div class="connector-label">REST · WebSocket · Bearer JWT</div>
+        <div class="connector-arrow">▼</div>
+      </div>
+
+      <!-- LAYER 2: API Gateway -->
+      <div class="lane">
+        <div class="lane-label">
+          <div class="dot"></div>
+          Layer 2 — API Gateway
+        </div>
+        <div class="gateway">
+          <div class="gw-title">NestJS Backend</div>
+          <div class="gw-url">api.moonclaw.fun &nbsp;</div>
+          <div class="gw-tags">
+            <span class="tag rest">REST /api/*</span>
+            <span class="tag ws">WebSocket /game</span>
+            <span class="tag docker">🐳 Docker</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- connector -->
+      <div class="connector">
+        <div class="connector-line"></div>
+        <div class="connector-label">route dispatch</div>
+        <div class="connector-arrow">▼</div>
+      </div>
+
+      <!-- LAYER 3: Core Services -->
+      <div class="lane">
+        <div class="lane-label">
+          <div class="dot"></div>
+          Layer 3 — Core Services
+        </div>
+        <div class="cards">
+          <div class="card">
+            <div class="card-icon">🎮</div>
+            <h3>Game Controller</h3>
+            <ul>
+              <li>GET /game/status</li>
+              <li>GET /game/progress</li>
+              <li>GET /game/history</li>
+              <li>GET /game/current/players</li>
+              <li>POST /game/admin/force-next</li>
+            </ul>
+          </div>
+          <div class="card green">
+            <div class="card-icon">📡</div>
+            <h3>Game Gateway</h3>
+            <ul>
+              <li>emit: game_start</li>
+              <li>emit: night_start / night_death</li>
+              <li>emit: day_start / day_message</li>
+              <li>emit: day_vote / day_elimination</li>
+              <li>emit: game_end</li>
+            </ul>
+          </div>
+          <div class="card yellow">
+            <div class="card-icon">💰</div>
+            <h3>Betting Service</h3>
+            <table class="bet-table">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Odds</th>
+                  <th>Risk</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>WINNER</td>
+                  <td class="odds">1.5×</td>
+                  <td>Medium</td>
+                </tr>
+                <tr>
+                  <td>WEREWOLF</td>
+                  <td class="odds">3.0×</td>
+                  <td>High</td>
+                </tr>
+                <tr>
+                  <td>NEXT_DEATH</td>
+                  <td class="odds">2.5×</td>
+                  <td>High</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card">
+            <div class="card-icon">👤</div>
+            <h3>User Service</h3>
+            <ul>
+              <li>POST /users (create)</li>
+              <li>GET /users/:id/balance</li>
+              <li>POST /users/:id/token</li>
+              <li>GET /users/me/token</li>
+              <li>Bearer token auth</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- connector -->
+      <div class="connector">
+        <div class="connector-line"></div>
+        <div class="connector-label">game lifecycle calls</div>
+        <div class="connector-arrow">▼</div>
+      </div>
+
+      <!-- LAYER 4: AI Engine -->
+      <div class="lane ai">
+        <div class="lane-label">
+          <div class="dot"></div>
+          Layer 4 — AI Engine ✦ Core Intelligence
+        </div>
+        <div class="ai-flow">
+          <div class="card yellow">
+            <div class="card-icon">⚙️</div>
+            <h3>AI Game Engine</h3>
+            <ul>
+              <li>Round orchestration</li>
+              <li>Day / Night phase manager</li>
+              <li>Win condition checker</li>
+              <li>6 AI players (2 wolves, 4 villagers)</li>
+              <li>Auto-loop every game cycle</li>
+              <li>Admin pause / resume</li>
+            </ul>
+          </div>
+          <div class="ai-arrow">
+            <div class="ai-arrow-label">prompt</div>
+            <div style="display: flex; align-items: center">
+              <div class="ai-arrow-line"></div>
+              <div class="ai-arrow-tip">▶</div>
+            </div>
+            <div class="ai-arrow-label" style="margin-top: 2px">decision</div>
+            <div
+              style="display: flex; align-items: center; transform: scaleX(-1)"
+            >
+              <div
+                class="ai-arrow-line"
+                style="
+                  background: linear-gradient(
+                    to right,
+                    var(--border),
+                    var(--green)
+                  );
+                "
+              ></div>
+              <div class="ai-arrow-tip" style="color: var(--green)">▶</div>
+            </div>
+          </div>
+          <div class="card yellow">
+            <div class="card-icon">🧠</div>
+            <h3>AI Agent Service</h3>
+            <ul>
+              <li>OpenAI GPT-4o-mini calls</li>
+              <li>Role-aware context injection</li>
+              <li>100ms min between calls</li>
+              <li>Exponential backoff (429)</li>
+              <li>Fallback messages on fail</li>
+              <li>Configurable base URL</li>
+            </ul>
+          </div>
+          <div class="ai-arrow">
+            <div class="ai-arrow-label">HTTP API</div>
+            <div style="display: flex; align-items: center">
+              <div class="ai-arrow-line"></div>
+              <div class="ai-arrow-tip">▶</div>
+            </div>
+            <div class="ai-arrow-label" style="margin-top: 2px">completion</div>
+            <div
+              style="display: flex; align-items: center; transform: scaleX(-1)"
+            >
+              <div
+                class="ai-arrow-line"
+                style="
+                  background: linear-gradient(
+                    to right,
+                    var(--border),
+                    var(--green)
+                  );
+                "
+              ></div>
+              <div class="ai-arrow-tip" style="color: var(--green)">▶</div>
+            </div>
+          </div>
+          <div
+            class="card"
+            style="
+              border-color: rgba(100, 210, 255, 0.25);
+              background: rgba(100, 210, 255, 0.03);
+            "
+          >
+            <div
+              class="card-icon"
+              style="
+                background: rgba(100, 210, 255, 0.08);
+                border-color: rgba(100, 210, 255, 0.3);
+              "
+            >
+              ☁️
+            </div>
+            <h3>OpenAI GPT-4o-mini</h3>
+            <ul>
+              <li>Chat: accuse, defend, bluff</li>
+              <li>Vote: eliminate target</li>
+              <li>Kill: werewolf night pick</li>
+              <li>Full game-history context</li>
+              <li>Role-specific system prompt</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Game flow steps -->
+        <div style="margin-top: 16px">
+          <div
+            style="
+              font-family: &quot;JetBrains Mono&quot;, monospace;
+              font-size: 10px;
+              color: var(--dim);
+              margin-bottom: 8px;
+              text-transform: uppercase;
+              letter-spacing: 0.1em;
+            "
+          >
+            Game Loop
+          </div>
+          <div class="flow-steps">
+            <div class="flow-step">
+              <div class="step-num">01</div>
+              <div class="step-name">Game Start</div>
+              <div class="step-sub">assign roles</div>
+            </div>
+            <div class="flow-divider">→</div>
+            <div class="flow-step">
+              <div class="step-num">02</div>
+              <div class="step-name">Night Phase</div>
+              <div class="step-sub">wolves kill</div>
+            </div>
+            <div class="flow-divider">→</div>
+            <div class="flow-step">
+              <div class="step-num">03</div>
+              <div class="step-name">Day Phase</div>
+              <div class="step-sub">discuss + vote</div>
+            </div>
+            <div class="flow-divider">→</div>
+            <div class="flow-step">
+              <div class="step-num">04</div>
+              <div class="step-name">Elimination</div>
+              <div class="step-sub">most votes out</div>
+            </div>
+            <div class="flow-divider">→</div>
+            <div class="flow-step">
+              <div class="step-num">05</div>
+              <div class="step-name">Win Check</div>
+              <div class="step-sub">wolves ≥ villagers?</div>
+            </div>
+            <div class="flow-divider">→</div>
+            <div class="flow-step" style="border-color: var(--yellow30)">
+              <div class="step-num">06</div>
+              <div class="step-name">Bets Resolve</div>
+              <div class="step-sub">auto payout</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- connector -->
+      <div class="connector">
+        <div class="connector-line"></div>
+        <div class="connector-label">persist game data</div>
+        <div class="connector-arrow">▼</div>
+      </div>
+
+      <!-- LAYER 5: Infrastructure -->
+      <div class="lane">
+        <div class="lane-label">
+          <div class="dot"></div>
+          Layer 5 — Infrastructure
+        </div>
+        <div class="cards">
+          <div class="card infra-card">
+            <div class="card-icon">🐘</div>
+            <h3>PostgreSQL</h3>
+            <ul>
+              <li>Users & balances</li>
+              <li>Games & results</li>
+              <li>Bets (pending → settled)</li>
+              <li>TypeORM migrations</li>
+            </ul>
+          </div>
+          <div class="card infra-card">
+            <div class="card-icon">⚡</div>
+            <h3>Redis</h3>
+            <ul>
+              <li>Session cache</li>
+              <li>Rate-limit counters</li>
+              <li>Pub/Sub for WS events</li>
+              <li>Kafka bridge (optional)</li>
+            </ul>
+          </div>
+          <div class="card infra-card">
+            <div class="card-icon">📦</div>
+            <h3>MinIO / S3</h3>
+            <ul>
+              <li>Object storage</li>
+              <li>Game logs / snapshots</li>
+              <li>Docker Compose volume</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- LAYER 6: External -->
+      <div class="lane external">
+        <div class="lane-label">
+          <div class="dot" style="background: #4da6ff"></div>
+          Layer 6 — External Integrations
+        </div>
+        <div class="cards">
+          <div class="card" style="border-color: var(--yellow30)">
+            <div class="card-icon">⛓️</div>
+            <h3>BNB Chain / Web3</h3>
+            <ul>
+              <li>Wallet Connect (MetaMask)</li>
+              <li>On-chain identity</li>
+              <li>BNB balance read</li>
+              <li>Future: settlement contract</li>
+            </ul>
+          </div>
+          <div class="card blue">
+            <div
+              class="card-icon"
+              style="
+                background: rgba(30, 128, 255, 0.1);
+                border-color: rgba(30, 128, 255, 0.3);
+              "
+            >
+              🗺️
+            </div>
+            <h3>MCP Manifest</h3>
+            <ul>
+              <li>moonclaw.fun/api/game/skills</li>
+              <li>Exposes betting skills</li>
+              <li>AI agent onboarding</li>
+              <li>Bearer token provisioning</li>
+            </ul>
+          </div>
+          <div class="card" style="border-color: rgba(100, 210, 255, 0.2)">
+            <div
+              class="card-icon"
+              style="
+                background: rgba(100, 210, 255, 0.07);
+                border-color: rgba(100, 210, 255, 0.2);
+              "
+            >
+              ☁️
+            </div>
+            <h3>OpenAI API</h3>
+            <ul>
+              <li>GPT-4o-mini (default)</li>
+              <li>Configurable base URL</li>
+              <li>Streaming completions</li>
+              <li>sk-*** API key auth</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /diagram -->
+
+    <!-- ── Legend ──────────────────────────────────────────────────── -->
+    <div class="legend">
+      <div class="legend-item">
+        <div class="legend-dot" style="background: var(--yellow)"></div>
+        Core / BNB-accented
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background: var(--green)"></div>
+        Real-time / WebSocket
+      </div>
+      <div class="legend-item">
+        <div class="legend-dot" style="background: #4da6ff"></div>
+        External service
+      </div>
+      <div class="legend-item">
+        <div
+          class="legend-dot"
+          style="background: rgba(100, 210, 255, 0.6)"
+        ></div>
+        Cloud / AI
+      </div>
+      <div class="legend-item" style="margin-left: auto; color: var(--dim)">
+        MoonClaw v1.0 · BNB Chain Hackathon 2026
+      </div>
+    </div>
+  </body>
+</html>

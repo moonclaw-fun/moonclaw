@@ -1,0 +1,58 @@
+import { Agent } from "@/lib/store";
+
+export const agents: Agent[] = [
+  {
+    id: "p1",
+    name: "CORE-7",
+    avatar: "�",
+    role: "wolf",
+    roleRevealed: false,
+    isAlive: true,
+    personality: "Aggressive, accusatory - plays offense",
+  },
+  {
+    id: "p2",
+    name: "CORE-9",
+    avatar: "🦾",
+    role: "villager",
+    roleRevealed: false,
+    isAlive: true,
+    personality: "Quiet, follows majority",
+  },
+  {
+    id: "p3",
+    name: "SCAN-X",
+    avatar: "👁️",
+    role: "seer",
+    roleRevealed: false,
+    isAlive: true,
+    personality: "Analytical, cautious",
+  },
+  {
+    id: "p4",
+    name: "WALL-E",
+    avatar: "⚙️",
+    role: "wolf",
+    roleRevealed: false,
+    isAlive: true,
+    personality: "Deceptive, plays innocent",
+  },
+  {
+    id: "p5",
+    name: "VX-01",
+    avatar: "🔬",
+    role: "villager",
+    roleRevealed: false,
+    isAlive: true,
+    personality: "Vocal, suspicious of CORE-7",
+  },
+  {
+    id: "p6",
+    name: "PROT-Z",
+    avatar: "�️",
+    role: "villager",
+    roleRevealed: false,
+    isAlive: true,
+    personality: "Defensive, protects the group",
+  },
+];

@@ -1,0 +1,878 @@
+[
+  {
+    "gameId": "cebea743-1229-468a-95b6c",
+    "status": "finished",
+    "winner": "villager",
+    "players": [
+      {
+        "id": "p1",
+        "name": "CORE-7",
+        "role": "werewolf",
+        "isAlive": false
+      },
+      {
+        "id": "p2",
+        "name": "CORE-9",
+        "role": "villager",
+        "isAlive": true
+      },
+      {
+        "id": "p3",
+        "name": "SCAN-X",
+        "role": "villager",
+        "isAlive": true
+      },
+      {
+        "id": "p4",
+        "name": "WALL-E",
+        "role": "villager",
+        "isAlive": false
+      },
+      {
+        "id": "p5",
+        "name": "VX-01",
+        "role": "villager",
+        "isAlive": false
+      },
+      {
+        "id": "p6",
+        "name": "PROT-Z",
+        "role": "werewolf",
+        "isAlive": false
+      }
+    ],
+    "rounds": [
+      {
+        "roundNumber": 1,
+        "phase": "night",
+        "actions": [
+          {
+            "actorId": "p1",
+            "role": "werewolf",
+            "type": "kill",
+            "targetId": "p4"
+          },
+          {
+            "actorId": "p6",
+            "role": "werewolf",
+            "type": "assist_kill",
+            "targetId": "p4"
+          }
+        ],
+        "result": {
+          "deaths": ["p4"]
+        }
+      },
+      {
+        "roundNumber": 1,
+        "phase": "day",
+        "messages": [
+          {
+            "id": "m1",
+            "playerId": "p1",
+            "content": "The wolves chose a target that gives us almost no information, which suggests they prefer ambiguity over chaos. That kind of calculated opening usually comes from players thinking several turns ahead.",
+            "timestamp": 1701010001
+          },
+          {
+            "id": "m2",
+            "playerId": "p1",
+            "content": "If we let emotional impulses dictate our vote today, we risk handing control of the tempo to the wolves. We should examine not only accusations, but who benefits from each narrative shift.",
+            "timestamp": 1701010002
+          },
+          {
+            "id": "m3",
+            "playerId": "p2",
+            "content": "p1 immediately framing the kill as 'calculated strategy' feels like an attempt to intellectualize the situation and gain authority. Wolves often try to anchor the discussion early.",
+            "timestamp": 1701010003
+          },
+          {
+            "id": "m4",
+            "playerId": "p2",
+            "content": "Instead of analyzing abstract strategy, I want to observe inconsistencies in tone and alignment. Sometimes over-structuring the conversation is itself a manipulation tactic.",
+            "timestamp": 1701010004
+          },
+          {
+            "id": "m5",
+            "playerId": "p3",
+            "content": "I find it interesting that p6 has remained observant rather than proactive. Silence can be patience, but it can also be risk management.",
+            "timestamp": 1701010005
+          },
+          {
+            "id": "m6",
+            "playerId": "p3",
+            "content": "Right now I am weighing who seems invested in solving the game versus who seems invested in surviving it. Those motivations often reveal more than direct accusations.",
+            "timestamp": 1701010006
+          },
+          {
+            "id": "m7",
+            "playerId": "p5",
+            "content": "There is a subtle tension between p1 controlling direction and p6 avoiding exposure. That dynamic might indicate coordination, or it might simply be coincidence.",
+            "timestamp": 1701010007
+          },
+          {
+            "id": "m8",
+            "playerId": "p5",
+            "content": "If we pressure both ends of that spectrum, we might force a reactive mistake. Wolves under balanced pressure often reveal themselves through defensive overcorrection.",
+            "timestamp": 1701010008
+          },
+          {
+            "id": "m9",
+            "playerId": "p6",
+            "content": "It is convenient that silence is being framed as suspicious, because that narrative benefits those who speak the loudest. Wolves sometimes weaponize activity to disguise intent.",
+            "timestamp": 1701010009
+          },
+          {
+            "id": "m10",
+            "playerId": "p6",
+            "content": "If we examine actual voting incentives rather than rhetorical dominance, p1’s early leadership deserves closer scrutiny than my restraint.",
+            "timestamp": 1701010010
+          }
+        ],
+        "votes": [
+          {
+            "voterId": "p1",
+            "targetId": "p2"
+          },
+          {
+            "voterId": "p2",
+            "targetId": "p1"
+          },
+          {
+            "voterId": "p3",
+            "targetId": "p1"
+          },
+          {
+            "voterId": "p5",
+            "targetId": "p6"
+          },
+          {
+            "voterId": "p6",
+            "targetId": "p1"
+          }
+        ],
+        "result": {
+          "eliminatedPlayerId": "p1"
+        }
+      },
+      {
+        "roundNumber": 2,
+        "phase": "night",
+        "actions": [
+          {
+            "actorId": "p6",
+            "role": "werewolf",
+            "type": "kill",
+            "targetId": "p5"
+          }
+        ],
+        "result": {
+          "deaths": ["p5"]
+        }
+      },
+      {
+        "roundNumber": 2,
+        "phase": "day",
+        "messages": [
+          {
+            "id": "m11",
+            "playerId": "p2",
+            "content": "The night kill removed someone who applied balanced pressure rather than tunnel vision. That choice suggests the remaining wolf prefers polarized narratives.",
+            "timestamp": 1701020001
+          },
+          {
+            "id": "m12",
+            "playerId": "p2",
+            "content": "Looking back, p6 consistently reframed suspicion without generating independent leads. That feels less like solving and more like redirecting.",
+            "timestamp": 1701020002
+          },
+          {
+            "id": "m13",
+            "playerId": "p3",
+            "content": "Yesterday, p6 positioned himself as a counterweight to p1, which created a false dichotomy. With p1 gone, that structure collapses and leaves p6 exposed.",
+            "timestamp": 1701020003
+          },
+          {
+            "id": "m14",
+            "playerId": "p3",
+            "content": "A villager under pressure usually tries to expand perspectives, while a wolf often narrows them strategically. I believe we are seeing the latter pattern.",
+            "timestamp": 1701020004
+          },
+          {
+            "id": "m15",
+            "playerId": "p6",
+            "content": "It is dangerous to reinterpret every past statement through the lens of hindsight. If you decide first and justify later, you risk confirmation bias.",
+            "timestamp": 1701020005
+          },
+          {
+            "id": "m16",
+            "playerId": "p6",
+            "content": "If I am eliminated and revealed innocent, the psychological momentum will instantly favor the true wolf. Consider whether this push feels organic or orchestrated.",
+            "timestamp": 1701020006
+          }
+        ],
+        "votes": [
+          {
+            "voterId": "p2",
+            "targetId": "p6"
+          },
+          {
+            "voterId": "p3",
+            "targetId": "p6"
+          },
+          {
+            "voterId": "p6",
+            "targetId": "p2"
+          }
+        ],
+        "result": {
+          "eliminatedPlayerId": "p6"
+        }
+      }
+    ]
+  },
+  {
+    "gameId": "a43e7db9-21c1-4490-9820",
+    "status": "finished",
+    "winner": "villager",
+    "players": [
+      {
+        "id": "p1",
+        "name": "CORE-7",
+        "role": "werewolf",
+        "isAlive": false
+      },
+      {
+        "id": "p2",
+        "name": "CORE-9",
+        "role": "villager",
+        "isAlive": true
+      },
+      {
+        "id": "p3",
+        "name": "SCAN-X",
+        "role": "villager",
+        "isAlive": false
+      },
+      {
+        "id": "p4",
+        "name": "WALL-E",
+        "role": "villager",
+        "isAlive": true
+      },
+      {
+        "id": "p5",
+        "name": "VX-01",
+        "role": "werewolf",
+        "isAlive": false
+      },
+      {
+        "id": "p6",
+        "name": "PROT-Z",
+        "role": "villager",
+        "isAlive": false
+      }
+    ],
+    "rounds": [
+      {
+        "roundNumber": 1,
+        "phase": "night",
+        "actions": [
+          {
+            "actorId": "p1",
+            "role": "werewolf",
+            "type": "kill",
+            "targetId": "p3"
+          },
+          {
+            "actorId": "p5",
+            "role": "werewolf",
+            "type": "assist_kill",
+            "targetId": "p3"
+          }
+        ],
+        "result": {
+          "deaths": ["p3"]
+        }
+      },
+      {
+        "roundNumber": 1,
+        "phase": "day",
+        "messages": [
+          {
+            "id": "m1",
+            "playerId": "p1",
+            "content": "Gamma's death feels calculated rather than random, and that worries me because it suggests the wolves wanted to silence someone observant. I think we need to pay close attention to who benefits most from Gamma being gone."
+          },
+          {
+            "id": "m2",
+            "playerId": "p1",
+            "content": "Right now, Beta is speaking very carefully, almost rehearsed, and that controlled tone makes me uneasy. I believe pressure might reveal more than calm discussion."
+          },
+          {
+            "id": "m3",
+            "playerId": "p2",
+            "content": "I am careful because one wrong word can get a villager executed, not because I have something to hide. Alpha shifting suspicion so early feels like an attempt to guide the narrative."
+          },
+          {
+            "id": "m4",
+            "playerId": "p2",
+            "content": "If we think logically, the wolves would want confusion, and Alpha is introducing just that. My instinct tells me he is steering us."
+          },
+          {
+            "id": "m5",
+            "playerId": "p4",
+            "content": "Both of you are building theories quickly, but Alpha's accusation came before any real evidence surfaced. That kind of proactive blame feels strategic."
+          },
+          {
+            "id": "m6",
+            "playerId": "p4",
+            "content": "Epsilon has been unusually quiet, almost blending into the background, and that subtle avoidance concerns me as well. Silence can be just as loud as accusation."
+          },
+          {
+            "id": "m7",
+            "playerId": "p5",
+            "content": "Remaining calm does not make someone a wolf; panic and chaos help wolves far more than silence does. I think Delta is exaggerating to appear analytical."
+          },
+          {
+            "id": "m8",
+            "playerId": "p5",
+            "content": "Alpha may be direct, but directness is not guilt. Sometimes wolves hide behind diplomacy instead."
+          },
+          {
+            "id": "m9",
+            "playerId": "p6",
+            "content": "From my perspective, Alpha seems overly invested in shaping the discussion from the first minute. That feels less like concern and more like positioning."
+          },
+          {
+            "id": "m10",
+            "playerId": "p6",
+            "content": "If we remove Alpha today, we gain clarity because either we eliminate a wolf or we learn from the voting patterns. I am willing to take that risk."
+          }
+        ],
+        "votes": [
+          {
+            "voterId": "p1",
+            "targetId": "p2"
+          },
+          {
+            "voterId": "p2",
+            "targetId": "p1"
+          },
+          {
+            "voterId": "p4",
+            "targetId": "p1"
+          },
+          {
+            "voterId": "p5",
+            "targetId": "p4"
+          },
+          {
+            "voterId": "p6",
+            "targetId": "p1"
+          }
+        ],
+        "result": {
+          "eliminated": "p1"
+        }
+      },
+      {
+        "roundNumber": 2,
+        "phase": "night",
+        "actions": [
+          {
+            "actorId": "p5",
+            "role": "werewolf",
+            "type": "kill",
+            "targetId": "p6"
+          }
+        ],
+        "result": {
+          "deaths": ["p6"]
+        }
+      },
+      {
+        "roundNumber": 2,
+        "phase": "day",
+        "messages": [
+          {
+            "id": "m11",
+            "playerId": "p2",
+            "content": "Zeta dying right after pushing Alpha strongly suggests the remaining wolf wanted revenge or damage control. The pattern feels personal and strategic."
+          },
+          {
+            "id": "m12",
+            "playerId": "p2",
+            "content": "Epsilon defended Alpha subtly yesterday, which now looks less like neutrality and more like protection. That connection cannot be ignored."
+          },
+          {
+            "id": "m13",
+            "playerId": "p4",
+            "content": "When Alpha was executed, Epsilon did not seem surprised or emotional, just observant. That detachment stands out to me now more than it did yesterday."
+          },
+          {
+            "id": "m14",
+            "playerId": "p4",
+            "content": "If we think structurally, the wolves tried to split suspicion between Alpha and Beta on day one. Epsilon fits perfectly as the partner who stayed in the shadows."
+          },
+          {
+            "id": "m15",
+            "playerId": "p5",
+            "content": "You are constructing a narrative that only makes sense because Alpha turned out to be a wolf. Hindsight bias is dangerous in this game."
+          },
+          {
+            "id": "m16",
+            "playerId": "p5",
+            "content": "If I were a wolf, would I really speak this openly instead of hiding completely? I think one of you is manipulating emotional reasoning."
+          }
+        ],
+        "votes": [
+          {
+            "voterId": "p2",
+            "targetId": "p5"
+          },
+          {
+            "voterId": "p4",
+            "targetId": "p5"
+          },
+          {
+            "voterId": "p5",
+            "targetId": "p2"
+          }
+        ],
+        "result": {
+          "eliminated": "p5"
+        }
+      }
+    ]
+  },
+  {
+    "gameId": "ee89a63e-8f9b-4700-942a",
+    "status": "finished",
+    "winner": "werewolf",
+    "players": [
+      {
+        "id": "p1",
+        "name": "CORE-7",
+        "role": "villager",
+        "isAlive": false
+      },
+      {
+        "id": "p2",
+        "name": "CORE-9",
+        "role": "werewolf",
+        "isAlive": true
+      },
+      {
+        "id": "p3",
+        "name": "SCAN-X",
+        "role": "villager",
+        "isAlive": false
+      },
+      {
+        "id": "p4",
+        "name": "WALL-E",
+        "role": "villager",
+        "isAlive": false
+      },
+      {
+        "id": "p5",
+        "name": "VX-01",
+        "role": "werewolf",
+        "isAlive": true
+      },
+      {
+        "id": "p6",
+        "name": "PROT-Z",
+        "role": "villager",
+        "isAlive": false
+      }
+    ],
+    "rounds": [
+      {
+        "roundNumber": 1,
+        "phase": "night",
+        "actions": [
+          {
+            "actorId": "p2",
+            "role": "werewolf",
+            "type": "kill",
+            "targetId": "p3"
+          },
+          {
+            "actorId": "p5",
+            "role": "werewolf",
+            "type": "assist_kill",
+            "targetId": "p3"
+          }
+        ],
+        "result": {
+          "deaths": ["p3"]
+        }
+      },
+      {
+        "roundNumber": 1,
+        "phase": "day",
+        "messages": [
+          {
+            "id": "m1",
+            "playerId": "p1",
+            "content": "Gamma's death feels deliberate, like someone removed a quiet observer before he could connect patterns. I think the wolves wanted to destabilize the group before discussions even began."
+          },
+          {
+            "id": "m2",
+            "playerId": "p1",
+            "content": "Beta seems unusually composed for someone who just saw a teammate die. That emotional steadiness feels rehearsed rather than natural."
+          },
+          {
+            "id": "m3",
+            "playerId": "p2",
+            "content": "Remaining calm does not make someone guilty; panic would only make things worse for villagers. Alpha pointing fingers immediately feels like projection rather than logic."
+          },
+          {
+            "id": "m4",
+            "playerId": "p2",
+            "content": "If I were a wolf, drawing attention to myself this early would be reckless. I believe Alpha is trying to control the narrative before scrutiny reaches him."
+          },
+          {
+            "id": "m5",
+            "playerId": "p4",
+            "content": "I notice Alpha speaks with certainty but lacks concrete evidence, which concerns me. Strong accusations without foundation can fracture the village."
+          },
+          {
+            "id": "m6",
+            "playerId": "p4",
+            "content": "Epsilon has barely contributed yet, and that silence is equally suspicious. Wolves often survive by appearing invisible."
+          },
+          {
+            "id": "m7",
+            "playerId": "p5",
+            "content": "Silence can also mean someone is thinking carefully rather than reacting emotionally. Delta seems eager to distribute suspicion broadly instead of focusing."
+          },
+          {
+            "id": "m8",
+            "playerId": "p5",
+            "content": "Alpha's intensity feels disproportionate, almost like he needs someone else gone today. That urgency makes me uncomfortable."
+          },
+          {
+            "id": "m9",
+            "playerId": "p6",
+            "content": "Alpha and Beta are clashing hard, which might be intentional misdirection. Wolves benefit when villagers fight each other."
+          },
+          {
+            "id": "m10",
+            "playerId": "p6",
+            "content": "Still, Alpha initiated the hostility, and that fact cannot be ignored. I am leaning toward removing him to reduce chaos."
+          }
+        ],
+        "votes": [
+          {
+            "voterId": "p1",
+            "targetId": "p2"
+          },
+          {
+            "voterId": "p2",
+            "targetId": "p1"
+          },
+          {
+            "voterId": "p4",
+            "targetId": "p1"
+          },
+          {
+            "voterId": "p5",
+            "targetId": "p1"
+          },
+          {
+            "voterId": "p6",
+            "targetId": "p1"
+          }
+        ],
+        "result": {
+          "eliminated": "p1"
+        }
+      },
+      {
+        "roundNumber": 2,
+        "phase": "night",
+        "actions": [
+          {
+            "actorId": "p2",
+            "role": "werewolf",
+            "type": "kill",
+            "targetId": "p6"
+          }
+        ],
+        "result": {
+          "deaths": ["p6"]
+        }
+      },
+      {
+        "roundNumber": 2,
+        "phase": "day",
+        "messages": [
+          {
+            "id": "m11",
+            "playerId": "p2",
+            "content": "Zeta's death is tragic, but it clarifies something important: the wolves eliminated someone who doubted Alpha yesterday. That suggests Alpha might have been innocent after all."
+          },
+          {
+            "id": "m12",
+            "playerId": "p2",
+            "content": "Delta pushed suspicion broadly and survived the night, which feels strategically convenient. I believe the real wolf is hiding behind analytical language."
+          },
+          {
+            "id": "m13",
+            "playerId": "p4",
+            "content": "It is unfair to reinterpret yesterday's events now that Alpha is gone. Wolves thrive on rewriting history to fit their agenda."
+          },
+          {
+            "id": "m14",
+            "playerId": "p4",
+            "content": "Epsilon's positioning has been subtle and adaptive, never too loud, never too quiet. That balance feels calculated."
+          },
+          {
+            "id": "m15",
+            "playerId": "p5",
+            "content": "Delta is attempting to construct a coherent story, but it feels overly polished, as if prepared in advance. Authentic reasoning is rarely that smooth."
+          },
+          {
+            "id": "m16",
+            "playerId": "p5",
+            "content": "If we remove Delta, we either eliminate a wolf or finally break this spiral of suspicion. I am willing to take responsibility for that decision."
+          }
+        ],
+        "votes": [
+          {
+            "voterId": "p2",
+            "targetId": "p4"
+          },
+          {
+            "voterId": "p4",
+            "targetId": "p5"
+          },
+          {
+            "voterId": "p5",
+            "targetId": "p4"
+          }
+        ],
+        "result": {
+          "eliminated": "p4"
+        }
+      }
+    ]
+  },
+  {
+    "gameId": "12a90239-e96a-406a-bb24",
+    "status": "finished",
+    "winner": "villager",
+    "players": [
+      {
+        "id": "p1",
+        "name": "CORE-7",
+        "role": "villager",
+        "isAlive": true
+      },
+      {
+        "id": "p2",
+        "name": "CORE-9",
+        "role": "villager",
+        "isAlive": false
+      },
+      {
+        "id": "p3",
+        "name": "SCAN-X",
+        "role": "werewolf",
+        "isAlive": false
+      },
+      {
+        "id": "p4",
+        "name": "WALL-E",
+        "role": "werewolf",
+        "isAlive": false
+      },
+      {
+        "id": "p5",
+        "name": "VX-01",
+        "role": "villager",
+        "isAlive": false
+      },
+      {
+        "id": "p6",
+        "name": "PROT-Z",
+        "role": "villager",
+        "isAlive": true
+      }
+    ],
+    "rounds": [
+      {
+        "roundNumber": 1,
+        "phase": "night",
+        "actions": [
+          {
+            "actorId": "p3",
+            "role": "werewolf",
+            "type": "kill",
+            "targetId": "p2"
+          },
+          {
+            "actorId": "p4",
+            "role": "werewolf",
+            "type": "assist_kill",
+            "targetId": "p2"
+          }
+        ],
+        "result": {
+          "deaths": ["p2"]
+        }
+      },
+      {
+        "roundNumber": 1,
+        "phase": "day",
+        "messages": [
+          {
+            "id": "m1",
+            "playerId": "p1",
+            "content": "Beta's death feels intentional, almost like someone wanted to remove a rational voice before it gained influence. The wolves are not playing randomly; they are shaping the discussion before it begins."
+          },
+          {
+            "id": "m2",
+            "playerId": "p1",
+            "content": "Gamma appears thoughtful, but sometimes calculated calm hides dangerous intent. I think we should examine subtle behavior rather than loud reactions."
+          },
+          {
+            "id": "m3",
+            "playerId": "p3",
+            "content": "It is easy to interpret calmness as calculation when emotions are high. I believe Alpha is projecting suspicion because he fears being scrutinized."
+          },
+          {
+            "id": "m4",
+            "playerId": "p3",
+            "content": "If I were responsible, I would avoid speaking this early and this openly. Transparency is not the strategy of a wolf."
+          },
+          {
+            "id": "m5",
+            "playerId": "p4",
+            "content": "Alpha is creating a narrative without concrete links between actions and intent. That kind of abstract suspicion can easily mislead villagers."
+          },
+          {
+            "id": "m6",
+            "playerId": "p4",
+            "content": "Zeta has remained observant and distant, which could either mean careful reasoning or careful hiding. We cannot ignore that ambiguity."
+          },
+          {
+            "id": "m7",
+            "playerId": "p5",
+            "content": "Gamma and Delta seem subtly aligned in tone, almost reinforcing each other without appearing obvious. That quiet synchronization worries me."
+          },
+          {
+            "id": "m8",
+            "playerId": "p5",
+            "content": "If we do not challenge that alignment now, it may become too strong to break later. I would rather risk acting early than regret hesitation."
+          },
+          {
+            "id": "m9",
+            "playerId": "p6",
+            "content": "I feel tension between Alpha and Gamma, but Delta's defense of Gamma felt automatic. That instinctive support caught my attention."
+          },
+          {
+            "id": "m10",
+            "playerId": "p6",
+            "content": "For now, Gamma seems the most strategically positioned player in the room. I believe voting him gives us the clearest information."
+          }
+        ],
+        "votes": [
+          {
+            "voterId": "p1",
+            "targetId": "p3"
+          },
+          {
+            "voterId": "p3",
+            "targetId": "p1"
+          },
+          {
+            "voterId": "p4",
+            "targetId": "p1"
+          },
+          {
+            "voterId": "p5",
+            "targetId": "p3"
+          },
+          {
+            "voterId": "p6",
+            "targetId": "p3"
+          }
+        ],
+        "result": {
+          "eliminated": "p3"
+        }
+      },
+      {
+        "roundNumber": 2,
+        "phase": "night",
+        "actions": [
+          {
+            "actorId": "p4",
+            "role": "werewolf",
+            "type": "kill",
+            "targetId": "p5"
+          }
+        ],
+        "result": {
+          "deaths": ["p5"]
+        }
+      },
+      {
+        "roundNumber": 2,
+        "phase": "day",
+        "messages": [
+          {
+            "id": "m11",
+            "playerId": "p1",
+            "content": "Epsilon's death confirms that the remaining wolf wanted to remove someone who suspected coordination yesterday. That feels like damage control."
+          },
+          {
+            "id": "m12",
+            "playerId": "p1",
+            "content": "Delta defended Gamma instinctively, and that connection now seems more than coincidence. Patterns matter more than polished words."
+          },
+          {
+            "id": "m13",
+            "playerId": "p4",
+            "content": "You are building certainty out of hindsight, which is always cleaner than reality. Yesterday we had doubts, not proof."
+          },
+          {
+            "id": "m14",
+            "playerId": "p4",
+            "content": "Zeta has been subtle enough to avoid heat entirely, which could mean he is strategically invisible. Sometimes the quietest player survives for a reason."
+          },
+          {
+            "id": "m15",
+            "playerId": "p6",
+            "content": "You are redirecting attention because Gamma's exposure weakened your position. That redirection feels desperate rather than logical."
+          },
+          {
+            "id": "m16",
+            "playerId": "p6",
+            "content": "If we eliminate you today and you are innocent, I will accept responsibility. But if we hesitate, the village will not survive another night."
+          }
+        ],
+        "votes": [
+          {
+            "voterId": "p1",
+            "targetId": "p4"
+          },
+          {
+            "voterId": "p4",
+            "targetId": "p1"
+          },
+          {
+            "voterId": "p6",
+            "targetId": "p4"
+          }
+        ],
+        "result": {
+          "eliminated": "p4"
+        }
+      }
+    ]
+  }
+]
