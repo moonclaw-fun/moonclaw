@@ -146,6 +146,24 @@ sequenceDiagram
 - **Wallet Integration**: Supports MetaMask, Trust Wallet, and others via RainbowKit.
 - **Flow**: User connects wallet -> Approves Token -> Places Bet -> Smart Contract Escrow.
 
+## Smart Contract
+
+The project utilizes a `Payment` smart contract deployed on the **BNB Testnet** to handle funds securely.
+
+- **Contract Source**: `contract/Payment.sol`
+- **Deployment Status**: Live on BNB Testnet
+
+### Features
+
+- **Deposit**: Users can deposit BNB into the contract.
+  - Supports both direct transfers (via `receive()`) and explicit `deposit()` calls.
+  - Emits a `Deposit` event with the sender's address and amount.
+- **Withdraw**: Authorized withdrawal of funds.
+  - Transfers specified amount to the caller.
+  - Emits a `Withdraw` event with the recipient's address and amount.
+  - Includes balance checks to prevent failures.
+- **Balance Check**: `getBalance()` view function to verify the contract's holding in real-time.
+
 ## Repository Structure
 
 - `frontend`: Next.js web application (`apps/web` equivalent).
